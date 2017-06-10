@@ -1,0 +1,44 @@
+{
+	"name": "robot",
+	"version": "1.0.0",
+	"main": "dist/robotRunner.js",
+	"scripts": {
+		"lint": "eslint src",
+		"build": "babel ./src --source-maps-inline -d ./dist --presets env",
+		"pretest": "yarn run lint && yarn run build",
+		"test": "mocha dist/tests/**",
+		"premocha": "yarn run build",
+		"mocha": "mocha dist/tests/**",
+		"start": "node dist/robotRunner.js",
+		"prerestart": "yarn run test",
+		"restart": "node dist/robotRunner.js",
+		"debug": "yarn run build && node debug dist/robotRunner.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GufNZ/pixelRobot.git"
+	},
+	"keywords": [
+		"codeTest"
+	],
+	"author": "J. Chris Findlay",
+	"bugs": {
+		"url": "https://github.com/GufNZ/pixelRobot/issues"
+	},
+	"homepage": "https://github.com/GufNZ/pixelRobot",
+	"private": true,
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-preset-env": "^1.5.2",
+		"chai": "^4.0.2",
+		"eslint": "^3.19.0",
+		"eslint-config-airbnb-base": "^11.2.0",
+		"eslint-plugin-import": "^2.3.0",
+		"eslint-plugin-node": "^5.0.0",
+		"mocha": "^3.4.2",
+		"sinon": "^2.3.4"
+	},
+	"dependencies": {
+		"get-stdin": "^5.0.1"
+	}
+}
